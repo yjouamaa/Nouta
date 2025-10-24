@@ -1,0 +1,7 @@
+{
+  "name": "Nawta",
+  "description": "An Arabic music entertainment app inspired by Jawaker, featuring various musical games like song guessing, karaoke, and more. Designed for individual and group play with a vibrant, user-friendly interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

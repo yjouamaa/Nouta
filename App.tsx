@@ -3,10 +3,10 @@ import { Header } from './components/Header';
 import { GameCard } from './components/GameCard';
 import { GAMES } from './constants';
 import type { Game } from './types';
-import { GameSession } from './components/GameSession';
-import { MusicalPicturesSession } from './components/MusicalPicturesSession';
-import { KaraokeLobby } from './components/KaraokeLobby';
-import { SongLetterSession } from './components/SongLetterSession';
+import { GameSession } from './components/features/guess-song/GameSession';
+import { MusicalPicturesSession } from './components/features/musical-pictures/MusicalPicturesSession';
+import { KaraokeLobby } from './components/features/karaoke/KaraokeLobby';
+import { SongLetterSession } from './components/features/song-letter/SongLetterSession';
 
 const App: React.FC = () => {
   const [activeGame, setActiveGame] = useState<Game | null>(null);

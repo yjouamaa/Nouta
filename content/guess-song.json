@@ -1,0 +1,30 @@
+[
+  {
+    "id": "gs1",
+    "videoId": "f33v_aK-4sQ",
+    "startTime": 58,
+    "options": ["3 Daqat - Abu ft. Yousra", "Bel Bont El 3areed - Hussein Al Jasmi", "Enta Eih - Nancy Ajram", "Ya Tabtab - Nancy Ajram"],
+    "correctAnswer": "3 Daqat - Abu ft. Yousra"
+  },
+  {
+    "id": "gs2",
+    "videoId": "Ca_p__c-uDQ",
+    "startTime": 45,
+    "options": ["Ana Dammi Falastini - Mohammed Assaf", "Mawtini - Various Artists", "Bel Bont El 3areed - Hussein Al Jasmi", "Al Atlal - Umm Kulthum"],
+    "correctAnswer": "Bel Bont El 3areed - Hussein Al Jasmi"
+  },
+  {
+    "id": "gs3",
+    "videoId": "u_p2gl-r_oA",
+    "startTime": 25,
+    "options": ["El Donia Helwa - Nancy Ajram", "Habibi Ya Nour El Ein - Amr Diab", "Boshret Kheir - Hussein Al Jasmi", "Tamally Maak - Amr Diab"],
+    "correctAnswer": "Tamally Maak - Amr Diab"
+  },
+   {
+    "id": "gs4",
+    "videoId": "p_1jS_b6A-I",
+    "startTime": 73,
+    "options": ["Shoufi Bini W Bink - Hisham Abbas", "Qamarun - Maher Zain", "Bent El Shalabiya - Fairuz", "Habibi Dah (Nari Narien) - Hisham Abbas"],
+    "correctAnswer": "Habibi Dah (Nari Narien) - Hisham Abbas"
+  }
+]

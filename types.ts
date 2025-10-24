@@ -39,3 +39,8 @@ export interface ChatMessage {
     text: string;
     authorName?: string;
 }
+
+export interface BotSong {
+  title: string;
+  artist: string;
+}

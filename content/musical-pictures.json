@@ -1,0 +1,14 @@
+[
+  {
+    "id": "mp1",
+    "images": ["https://images.unsplash.com/photo-1534294247228-56504c552086?w=200", "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=200", "https://images.unsplash.com/photo-1502920514358-90b23d79b988?w=200"],
+    "options": ["Ya Ghayeb - Fadel Shaker", "Nour El Shams - Pascale Machaalani", "Zahrat Al Madaen - Fairuz", "Saalouni El Nas - Fairuz"],
+    "correctAnswer": "Zahrat Al Madaen - Fairuz"
+  },
+  {
+    "id": "mp2",
+    "images": ["https://images.unsplash.com/photo-1509316975870-62c5b96a4614?w=200", "https://images.unsplash.com/photo-1542317851-6796a1768812?w=200", "https://images.unsplash.com/photo-1594901933526-78759942a5d7?w=200"],
+    "options": ["Bahlam Maak - Najwa Karam", "Aal Bahr - Mohamed Mounir", "El Gharam El Mostaheel - Wael Kfoury", "Shoufi Bini W Bink - Hisham Abbas"],
+    "correctAnswer": "Aal Bahr - Mohamed Mounir"
+  }
+]

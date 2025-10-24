@@ -1,0 +1,42 @@
+[
+  {
+    "id": "k1",
+    "title": "3 Daqat (Karaoke)",
+    "artist": "Abu ft. Yousra",
+    "videoId": "8f3eVI35JbM",
+    "lyrics": [
+      { "time": 58, "text": "وقت غروب الشمس واقف ع البحر بعيد" },
+      { "time": 62, "text": "عمال بحكيله وأشكيله وأشرح وأعيد" },
+      { "time": 66, "text": "فجأة لقيتها وكنت فاكرها عروسة البحر" },
+      { "time": 70, "text": "خارجة من המايه وطلتها أقوى من السحر" },
+      { "time": 74, "text": "لما شفتها قلبي دق تلات دقات" },
+      { "time": 78, "text": "والطبلة دخلت لعبت جوة دماغي حاجات"}
+    ]
+  },
+  {
+    "id": "k2",
+    "title": "Tamally Maak (Karaoke)",
+    "artist": "Amr Diab",
+    "videoId": "Y84nJpLhJ5I",
+    "lyrics": [
+      { "time": 25, "text": "تملي معاك" },
+      { "time": 29, "text": "ولو حتى بعيد عني في قلبي هواك" },
+      { "time": 33, "text": "تملي معاك" },
+      { "time": 37, "text": "تملي في بالي وفي قلبي ولا بنساك" },
+      { "time": 41, "text": "تملي واحشني لو حتى بكون وياك"}
+    ]
+  },
+  {
+    "id": "k3",
+    "title": "Lama Bada Yatathanna (Karaoke)",
+    "artist": "Traditional",
+    "videoId": "s2-j5czsAYY",
+    "lyrics": [
+      { "time": 5, "text": "لما بدا يتثنى" },
+      { "time": 9, "text": "حبي جماله فتنا" },
+      { "time": 13, "text": "أمر ما بلحظة أسرنا" },
+      { "time": 17, "text": "غصن ثنا حين مال" },
+      { "time": 21, "text": "وعدي ويا حيرتي"}
+    ]
+  }
+]

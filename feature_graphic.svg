@@ -1,0 +1,46 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="featureGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:#A020F0;" />
+            <stop offset="100%" style="stop-color:#2B2B2B;" />
+        </radialGradient>
+    </defs>
+    <rect width="1024" height="500" fill="url(#featureGrad)"/>
+    
+    <!-- Word "نوتة" on the right -->
+    <text x="770" y="320" font-family="Tajawal, sans-serif" font-size="200" font-weight="bold" fill="white" text-anchor="middle">
+        نوتة
+        <!-- Dots -->
+        <tspan fill="white">...</tspan>
+        <!-- The "Ta marbuta" with special circle -->
+        <tspan dx="-30" dy="0">
+            <tspan fill="white">ة</tspan>
+            <circle cx="628" cy="182" r="10" fill="none" stroke="#FFA500" stroke-width="4"/>
+        </tspan>
+    </text>
+
+    <!-- Microphone -->
+    <g transform="translate(150, 80) scale(2.5)">
+        <path d="M54.5 50.5C54.5 58.7843 47.7843 65.5 39.5 65.5C31.2157 65.5 24.5 58.7843 24.5 50.5V25.5C24.5 17.2157 31.2157 10.5 39.5 10.5C47.7843 10.5 54.5 17.2157 54.5 25.5V50.5Z" fill="#40E0D0"/>
+        <path d="M39.5 85.5C49.165 85.5 57 77.665 57 68H22C22 77.665 29.835 85.5 39.5 85.5Z" fill="#FFA500"/>
+        <rect x="22" y="62" width="35" height="10" rx="5" fill="#F97316"/>
+        <path d="M29 30H50" stroke="#06B6D4" stroke-width="5" stroke-linecap="round"/>
+        <path d="M29 42H50" stroke="#06B6D4" stroke-width="5" stroke-linecap="round"/>
+        <rect x="35" y="72" width="9" height="18" rx="4.5" fill="#F97316"/>
+        <path d="M40 90 C 40 98, 30 98, 30 90" stroke="#F43F5E" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Music Note -->
+    <g transform="translate(380, 50) scale(2.8)">
+        <path d="M60,85 A15,15 0 1,1 60,55 A15,15 0 0,1 60,85 Z" fill="#F43F5E"/>
+        <path d="M75 70 L 75 15 C 85 5, 65 5, 75 15" stroke="#F43F5E" stroke-width="12" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Sparkles -->
+    <g transform="translate(120, 100) scale(1.5)">
+      <path d="M10 0 L 13 7 L 20 10 L 13 13 L 10 20 L 7 13 L 0 10 L 7 7 Z" fill="#FFD700"/>
+    </g>
+    <g transform="translate(850, 400) scale(1.2)">
+      <path d="M10 0 L 13 7 L 20 10 L 13 13 L 10 20 L 7 13 L 0 10 L 7 7 Z" fill="#FFA500"/>
+    </g>
+</svg>

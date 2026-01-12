@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { GameCard } from './components/GameCard';
@@ -7,10 +8,12 @@ import { GameSession } from './components/features/guess-song/GameSession';
 import { MusicalPicturesSession } from './components/features/musical-pictures/MusicalPicturesSession';
 import { KaraokeLobby } from './components/features/karaoke/KaraokeLobby';
 import { SongLetterSession } from './components/features/song-letter/SongLetterSession';
+import { ProfileModal } from './components/ProfileModal';
 
 const App: React.FC = () => {
   const [activeGame, setActiveGame] = useState<Game | null>(null);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   useEffect(() => {
     if (activeGame) {
@@ -42,7 +45,6 @@ const App: React.FC = () => {
       case 'song-letter':
         return <SongLetterSession onExit={handleExitGame} />;
       default:
-        // Fallback to exit if game component doesn't exist
         handleExitGame();
         return null;
     }
@@ -54,7 +56,8 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-brand-gray-dark text-white font-tajawal antialiased">
-      <Header />
+      <Header onProfileClick={() => setIsProfileModalOpen(true)} />
+      
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-brand-gold animate-fade-in-down">
           أهلاً بك في نوتة
@@ -74,6 +77,11 @@ const App: React.FC = () => {
           ))}
         </div>
       </main>
+
+      <ProfileModal 
+        isOpen={isProfileModalOpen} 
+        onClose={() => setIsProfileModalOpen(false)} 
+      />
 
       {/* Welcome Modal */}
       {showWelcome && (

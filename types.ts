@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export interface Game {
@@ -12,7 +13,7 @@ export type GameState = 'loading' | 'playing' | 'answered' | 'finished';
 
 export interface GuessSongQuestion {
   id: string;
-  videoId: string;
+  audioUrl: string;
   startTime?: number;
   options: string[];
   correctAnswer: string;
@@ -29,7 +30,7 @@ export interface KaraokeSong {
   id: string;
   title: string;
   artist: string;
-  videoId: string;
+  audioUrl: string;
   lyrics: { time: number; text: string }[];
 }
 

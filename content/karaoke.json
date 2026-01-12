@@ -2,42 +2,29 @@
 [
   {
     "id": "k1",
-    "title": "3 Daqat (Karaoke)",
+    "title": "3 Daqat",
     "artist": "Abu ft. Yousra",
-    "videoId": "s3c_3-a-73k",
+    "audioUrl": "https://res.cloudinary.com/dywghdkek/video/upload/v1767298673/3_Daqat_Karaoke_-_Abu_ft._Yousra_-_%D8%AB%D9%84%D8%A7%D8%AB_%D8%AF%D9%82%D8%A7%D8%AA_%D9%83%D8%A7%D8%B1%D9%8A%D9%88%D9%83%D9%8A_-_%D8%A7%D9%94%D8%A8%D9%88_%D9%88_%D9%8A%D8%B3%D8%B1%D8%A7_ivk11g.mp3",
     "lyrics": [
-      { "time": 21, "text": "وقت غروب الشمس واقف ع البحر بعيد" },
-      { "time": 25, "text": "عمال بحكيله وأشكيله وأشرح وأعيد" },
-      { "time": 29, "text": "فجأة لقيتها وكنت فاكرها عروسة البحر" },
-      { "time": 33, "text": "خارجة من המايه وطلتها أقوى من السحر" },
-      { "time": 37, "text": "لما شفتها قلبي دق تلات دقات" },
-      { "time": 41, "text": "والطبلة دخلت لعبت جوة دماغي حاجات"}
+      { "time": 18, "text": "وقت غروب الشمس واقف ع البحر بعيد" },
+      { "time": 22, "text": "عمال بحكيله وأشكيله وأشرح وأعيد" },
+      { "time": 26, "text": "فجأة لقيتها وكنت فاكرها عروسة البحر" },
+      { "time": 30, "text": "خارجة من المياه وطلتها أقوى من السحر" },
+      { "time": 34, "text": "لما شفتها قلبي دق تلات دقات" },
+      { "time": 38, "text": "والطبلة دخلت لعبت جوة دماغي حاجات"}
     ]
   },
   {
     "id": "k2",
-    "title": "Tamally Maak (Karaoke)",
+    "title": "Tamally Maak",
     "artist": "Amr Diab",
-    "videoId": "R0i7gJa3-1A",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
     "lyrics": [
-      { "time": 24, "text": "تملي معاك" },
-      { "time": 28, "text": "ولو حتى بعيد عني في قلبي هواك" },
-      { "time": 32, "text": "تملي معاك" },
-      { "time": 36, "text": "تملي في بالي وفي قلبي ولا بنساك" },
-      { "time": 40, "text": "تملي واحشني لو حتى بكون وياك"}
-    ]
-  },
-  {
-    "id": "k3",
-    "title": "Lama Bada Yatathanna (Karaoke)",
-    "artist": "Traditional",
-    "videoId": "C7M2422sW-Y",
-    "lyrics": [
-      { "time": 2, "text": "لما بدا يتثنى" },
-      { "time": 6, "text": "حبي جماله فتنا" },
-      { "time": 11, "text": "أمر ما بلحظة أسرنا" },
-      { "time": 15, "text": "غصن ثنا حين مال" },
-      { "time": 20, "text": "وعدي ويا حيرتي"}
+      { "time": 2, "text": "تملي معاك" },
+      { "time": 6, "text": "ولو حتى بعيد عني في قلبي هواك" },
+      { "time": 10, "text": "تملي معاك" },
+      { "time": 14, "text": "تملي في بالي وفي قلبي ولا بنساك" },
+      { "time": 18, "text": "تملي واحشني لو حتى بكون وياك"}
     ]
   }
 ]

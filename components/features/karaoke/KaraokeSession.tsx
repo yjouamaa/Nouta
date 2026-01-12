@@ -25,6 +25,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
     const audioChunksRef = useRef<Blob[]>([]);
 
     useEffect(() => {
+        // تهيئة الميكروفون عند بدء الجلسة
         async function initMic() {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -43,7 +44,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
 
                 mediaRecorderRef.current = mediaRecorder;
             } catch (err) {
-                console.error("Mic error:", err);
+                console.warn("Microphone access denied or error:", err);
             }
         }
         initMic();
@@ -59,6 +60,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
         const time = audioRef.current.currentTime;
         setCurrentTime(time);
 
+        // البحث عن السطر الحالي في الكلمات (يدوي لضمان التوافق)
         let activeLineIndex = -1;
         for (let i = song.lyrics.length - 1; i >= 0; i--) {
             if (time >= song.lyrics[i].time) {
@@ -80,9 +82,9 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
         }
     };
 
-    const handleAudioError = () => {
-        console.error("Failed to load audio from:", song.audioUrl);
-        setError("فشل تحميل الأغنية. تأكد من أن الرابط مباشر وصحيح.");
+    const handleAudioError = (e: any) => {
+        console.error("Audio Load Error:", e);
+        setError("تعذر تحميل الملف الصوتي من Cloudinary. تأكد من اتصال الإنترنت أو صلاحية الرابط.");
         setLoading(false);
     };
 
@@ -101,15 +103,20 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
             audioRef.current.pause();
             setIsPlaying(false);
         } else {
-            audioRef.current.play().catch(e => {
-                console.error("Play error:", e);
-                setError("لا يمكن تشغيل الملف. حاول مرة أخرى.");
-            });
-            setIsPlaying(true);
-            if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'inactive') {
-                audioChunksRef.current = [];
-                mediaRecorderRef.current.start();
-                setIsRecording(true);
+            // محاولة التشغيل مع معالجة سياسات المتصفح
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setIsPlaying(true);
+                    if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'inactive') {
+                        audioChunksRef.current = [];
+                        mediaRecorderRef.current.start();
+                        setIsRecording(true);
+                    }
+                }).catch(err => {
+                    console.error("Playback failed:", err);
+                    setError("فشل التشغيل. يرجى الضغط مرة أخرى أو تحديث الصفحة.");
+                });
             }
         }
     };
@@ -122,9 +129,12 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
             setCurrentLineIndex(-1);
             setIsPlaying(false);
             setError(null);
+            setLoading(true);
+            audioRef.current.load(); // إعادة تحميل الملف
         }
     };
 
+    // تحريك كلمات الأغنية تلقائياً
     useEffect(() => {
         if (lyricsContainerRef.current && currentLineIndex >= 0) {
             const activeLineElement = lyricsContainerRef.current.children[currentLineIndex] as HTMLElement;
@@ -174,6 +184,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
 
     return (
         <div className="h-screen bg-brand-gray-dark text-white font-tajawal flex flex-col items-center justify-center relative overflow-hidden">
+            {/* المشغل المخفي مع تحسينات CORS */}
             <audio 
                 ref={audioRef}
                 src={song.audioUrl}
@@ -181,6 +192,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
                 onLoadedMetadata={handleLoadedMetadata}
                 onError={handleAudioError}
                 onEnded={handleEnded}
+                crossOrigin="anonymous"
                 preload="auto"
                 className="hidden"
             />
@@ -194,18 +206,24 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
                         <h1 className="text-2xl md:text-3xl font-black text-brand-orange truncate">{song.title}</h1>
                         <p className="text-brand-gold text-sm md:text-base">{song.artist}</p>
                     </div>
-                    {isRecording ? (
+                    {isRecording && (
                         <div className="flex items-center gap-2 px-3 py-1 bg-red-600/20 text-red-500 rounded-full border border-red-600/30 animate-pulse">
                             <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                            <span className="text-xs font-bold uppercase tracking-widest">مباشر</span>
+                            <span className="text-xs font-bold uppercase tracking-widest">تسجيل</span>
                         </div>
-                    ) : <div className="w-12"></div>}
+                    )}
+                    {!isRecording && <div className="w-12"></div>}
                 </div>
 
                 {error ? (
                     <div className="flex-grow flex flex-col items-center justify-center text-center p-8 bg-red-500/10 rounded-2xl border border-red-500/20">
                         <p className="text-red-400 text-xl font-bold mb-4">{error}</p>
-                        <button onClick={() => window.location.reload()} className="bg-white/10 px-6 py-2 rounded-full hover:bg-white/20 transition-colors">تحديث الصفحة</button>
+                        <button 
+                            onClick={() => window.location.reload()} 
+                            className="bg-brand-orange text-brand-gray-dark font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform"
+                        >
+                            تحديث التطبيق
+                        </button>
                     </div>
                 ) : (
                     <div className="relative flex-grow flex flex-col overflow-hidden rounded-2xl bg-black/20 shadow-inner">
@@ -236,7 +254,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
                                 ></div>
                              </div>
                              <div className="flex justify-between items-center text-[10px] text-gray-400 font-mono">
-                                <span className="text-brand-gold italic">Cloudinary Source</span>
+                                <span className="text-brand-gold italic">مصدر آمن: Cloudinary</span>
                                 <span>{Math.floor(currentTime / 60)}:{String(Math.floor(currentTime % 60)).padStart(2, '0')} / {Math.floor(duration / 60)}:{String(Math.floor(duration % 60)).padStart(2, '0')}</span>
                              </div>
                         </div>
@@ -247,7 +265,7 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
                     <button
                         onClick={togglePlay}
                         disabled={loading || !!error}
-                        className={`min-w-[200px] py-4 px-10 rounded-full font-black text-xl shadow-xl transition-all active:scale-95 flex items-center justify-center gap-3 ${
+                        className={`min-w-[220px] py-4 px-10 rounded-full font-black text-xl shadow-xl transition-all active:scale-95 flex items-center justify-center gap-3 ${
                             loading 
                             ? 'bg-gray-600 text-gray-400 cursor-not-allowed animate-pulse' 
                             : !!error
@@ -257,11 +275,12 @@ export const KaraokeSession: React.FC<KaraokeSessionProps> = ({ song, onFinish }
                             : 'bg-brand-orange text-brand-gray-dark hover:scale-105 active:bg-brand-gold'
                         }`}
                     >
-                        {loading ? 'جاري التحميل...' : (isPlaying ? 'إيقاف مؤقت' : 'ابدأ الغناء')}
+                        {loading ? 'جاري التحميل...' : (isPlaying ? 'إيقاف مؤقت' : 'ابدأ الغناء الآن')}
                     </button>
                 </div>
             </div>
 
+            {/* تأثيرات بصرية خلفية */}
             <div className={`absolute -bottom-20 -left-20 w-80 h-80 bg-brand-purple/20 rounded-full blur-[100px] transition-opacity duration-1000 pointer-events-none ${isPlaying ? 'opacity-100' : 'opacity-0'}`}></div>
             <div className={`absolute -top-20 -right-20 w-80 h-80 bg-brand-turquoise/10 rounded-full blur-[100px] transition-opacity duration-1000 pointer-events-none ${isPlaying ? 'opacity-100' : 'opacity-0'}`}></div>
         </div>
